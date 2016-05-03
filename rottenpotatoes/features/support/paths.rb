@@ -13,7 +13,9 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
     when /^the edit page for "Alien"$/
-      '/movies/1/edit'
+      '/movies/3/edit'
+    when /^the details page for "Star Wars"$/
+      '/movies/1/'
     when /^the home\s?page$/
       '/'
 

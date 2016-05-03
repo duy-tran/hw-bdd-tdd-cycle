@@ -64,9 +64,9 @@ When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
 
-Then(/^the director of "Alien" should be "Ridley Scott"$/) do 
-  @movie = Movie.find(1)
-  expect(@movie.director).to eq("Ridley Scott")
+Then(/^the director of "Alien" should be "(.*?)"$/) do |director_name|
+  @movie = Movie.find(3)
+  expect(@movie.director).to eq(director_name)
 end
 
 
