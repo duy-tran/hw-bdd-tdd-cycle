@@ -33,6 +33,12 @@ class MoviesController < ApplicationController
     @movies = Movie.where(rating: @selected_ratings.keys).order(ordering)
   end
 
+  def similar
+    @movie = Movie.find params[:id]
+    @director_name = @movie.director
+    @movies = Movie.where(director: @director_name)
+  end
+
   def new
     # default: render 'new' template
   end
@@ -60,5 +66,4 @@ class MoviesController < ApplicationController
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
   end
-
 end
