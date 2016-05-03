@@ -58,8 +58,17 @@ When /^(?:|I )follow "([^"]*)"$/ do |link|
 end
 
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
+  if field == "Director"
+    field = 'movie_director'
+  end
   fill_in(field, :with => value)
 end
+
+Then(/^the director of "Alien" should be "Ridley Scott"$/) do 
+  @movie = Movie.find(1)
+  expect(@movie.director).to eq("Ridley Scott")
+end
+
 
 When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
   fill_in(field, :with => value)
