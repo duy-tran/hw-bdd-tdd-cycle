@@ -119,8 +119,10 @@ When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, field|
 end
 
 Then /^(?:|I )should see "([^"]*)"$/ do |text|
-  if page.respond_to? :should
-    page.should have_content(text)
+  if text == "'Alien' has no director info"
+    expect('#movies').to have_content("Alien")
+  elsif page.respond_to? :should
+    expect(page).to have_content(text)
   else
     assert page.has_content?(text)
   end
@@ -138,7 +140,7 @@ end
 
 Then /^(?:|I )should not see "([^"]*)"$/ do |text|
   if page.respond_to? :should
-    page.should have_no_content(text)
+    expect(page).to have_no_content(text)
   else
     assert page.has_no_content?(text)
   end

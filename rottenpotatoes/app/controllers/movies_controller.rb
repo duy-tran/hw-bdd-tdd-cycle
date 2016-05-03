@@ -8,6 +8,11 @@ class MoviesController < ApplicationController
     id = params[:id] # retrieve movie ID from URI route
     @movie = Movie.find(id) # look up movie by unique ID
     # will render app/views/movies/show.<extension> by default
+    if @movie.director.blank?
+      @similar_path = movies_path
+    else
+      @similar_path = similar_movie_path(@movie)
+    end
   end
 
   def index

@@ -12,14 +12,12 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
-    when /^the edit page for "Alien"$/
-      '/movies/3/edit'
-    when /^the details page for "Star Wars"$/
-      '/movies/1/'
-    when /^the details page for "Alien"$/
-      '/movies/3/'
-    when /^the Similar Movies page for "Star Wars"$/
-      '/movies/1/similar'
+    when /^the details page for "(.*)"$/
+      movie_path(Movie.where("title = ?", $1).first)
+    when /^the edit page for "(.*)"$/
+      edit_movie_path(Movie.where("title = ?", $1).first)   
+    when /^the Similar Movies page for "(.*)"$/
+      similar_movie_path(Movie.where("title = ?", $1).first)
     when /^the home\s?page$/
       '/movies'
 
