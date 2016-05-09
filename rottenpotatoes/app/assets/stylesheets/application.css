@@ -1,8 +1,8 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: White;
-  color: DarkSlateGrey;
+  background: #383838;
+  color: #ccc;
   font-family: Tahoma, Verdana, sans-serif;
   font-size: 10pt;
 }
@@ -12,12 +12,15 @@ div#main {
 }
 a {
   background: transparent;
-  color: maroon;
+  color:  #15EF88;
   text-decoration: underline;
   font-weight: bold;
 }
-h1 {
-  color: maroon;
+a:hover{
+  color: #0CF1F1;
+}
+h1, h2 {
+  color: #15EF88;
   font-size: 150%;
   font-style: italic;
   display: block;
@@ -27,9 +30,9 @@ h1 {
 h1.title {
   margin: 0 0 1em;
   padding: 10px;
-  background-color: orange;
-  color: white;
-  border-bottom: 4px solid gold;
+  background-color: #5B1378;
+  color: #01EDD0;
+  border-bottom: 4px solid #01EDD0;
   font-size: 2em;
   font-style: normal;
 }
@@ -40,25 +43,36 @@ table#movies {
   border-bottom: 2px solid black;
 }
 table#movies th {
-  border: 2px solid white;
+  border: 2px solid #111;
   font-weight: bold;
-  background-color: wheat;
+  background-color: #222;
 }
 table#movies th, table#movies td {
   padding: 4px;
   text-align: left;
 }
 table#movies th.hilite {
-  background-color: yellow;
-}
-#notice #warning {
-  background: rosybrown;
-  margin: 1em 0;
-  padding: 4px;
+  background-color: #055941;
 }
 form label {
   display: block;
   line-height: 25px;
   font-weight: bold;
-  color: maroon;
+  color: #15EF88;
+}
+.message {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid;
+}
+.warning {
+  color: #811111;
+  background-color: #FF9898;
+  border: #811111;
+}
+.notice {
+  color: #188111;
+  background-color: #92FF8A;
+  border-color: #188111;
 }

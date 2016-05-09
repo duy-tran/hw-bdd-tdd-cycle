@@ -19,11 +19,6 @@
         3,
         3,
         null,
-        3,
-        1,
-        null,
-        2,
-        null,
         null,
         null,
         1,
@@ -50,9 +45,14 @@
         null,
         null,
         1,
+        2,
+        2,
         1,
         1,
+        null,
         1,
+        1,
+        null,
         null,
         null,
         1,
@@ -96,12 +96,12 @@
       "/home/duy/hw-bdd-tdd-cycle/rottenpotatoes/app/helpers/movies_helper.rb": [
         1,
         null,
-        1,
-        0,
+        null,
+        null,
         null,
         null
       ]
     },
-    "timestamp": 1462292759
+    "timestamp": 1462784164
   }
 }

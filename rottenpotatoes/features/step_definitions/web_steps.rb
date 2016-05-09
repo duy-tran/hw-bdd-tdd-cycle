@@ -53,6 +53,7 @@ When /^(?:|I )press "([^"]*)"$/ do |button|
   click_button(button)
 end
 
+
 When /^(?:|I )follow "([^"]*)"$/ do |link|
   click_link(link)
 end
@@ -64,8 +65,8 @@ When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
 
-Then(/^the director of "Alien" should be "(.*?)"$/) do |director_name|
-  @movie = Movie.find(3)
+Then(/^the director of "(.*?)" should be "(.*?)"$/) do |movie_title, director_name|
+  @movie = Movie.where("title = ?", movie_title).first
   expect(@movie.director).to eq(director_name)
 end
 
@@ -119,9 +120,7 @@ When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, field|
 end
 
 Then /^(?:|I )should see "([^"]*)"$/ do |text|
-  if text == "'Alien' has no director info"
-    expect('#movies').to have_content("Alien")
-  elsif page.respond_to? :should
+  if page.respond_to? :should
     expect(page).to have_content(text)
   else
     assert page.has_content?(text)
